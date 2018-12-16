@@ -2,12 +2,15 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 
-from .serializers import UserSerializer
+from apps.user.permissions import IsPostOrIsAuthenticated
+from .serializers import UserSerializer, UserPreviewSerializer
 
 
 class UserCreateView(APIView):
+    permission_classes = (IsPostOrIsAuthenticated, )
+
     def get(self, request):
-        serializer = UserSerializer(request.user)
+        serializer = UserPreviewSerializer(request.user)
         return Response(serializer.data)
 
     def post(self, request):

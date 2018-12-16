@@ -4,6 +4,38 @@
 
 ## Social Network
 
+### Installation/Usage:
+
+For run development server you need to use python 3.5+
+
+First, need to install requirements from file:
+```shell
+pip install -r requirements.txt
+```
+Then you need to do some things from base django dir (social_network):
+
+- Then need to migrate database:
+```shell
+python manage.py migrate
+```
+
+- Optional you can create superuser:
+```shell
+python manage.py createsuperuser
+```
+
+- Finally you can run development server:
+```shell
+python manage.py runserver
+```
+For test system using bot you just need switch directory to bot, and run:
+```shell
+python main.py
+```
+- You can change your bot configuration in file /bot/config.py
+
+### About task:
+
 Basic models:
 - User
 - Post (always made by a user)
